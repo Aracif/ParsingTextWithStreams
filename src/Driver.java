@@ -58,8 +58,9 @@ public class Driver {
 					
 													
 			return  (ArrayList<String>) r.lines()
-					.map(line -> line.split(","))
+					.map(line -> line.split(","))					
 					.flatMap(k -> Arrays.asList(k).stream())
+					.filter((blanks) -> !blanks.equals(""))
 					.collect(Collectors.toList());
 			
 		}
@@ -69,7 +70,7 @@ public class Driver {
 	
 	public static void main(String[] args) throws IOException{
 		ArrayList<String> newList = streamParser();
-		//newList.forEach(s -> System.out.println(s));	
+		newList.forEach(s -> System.out.println(s));	
 		
 		
 	}
