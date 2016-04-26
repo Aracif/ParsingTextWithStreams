@@ -29,14 +29,34 @@ public class Driver {
 //			.forEach(nonBlank -> System.out.println(nonBlank));
 			
 			//Splits via comma seperated value
-			//r.lines()
-			//.map(line -> line.split(","))
-			//.flatMap(k -> Arrays.asList(k).stream())
-			//.forEach(word -> System.out.println(word));
+//			r.lines()
+//			.map(line -> line.split(","))
+//			.flatMap(k -> Arrays.asList(k).stream())
+//			.forEach(word -> System.out.println(word));
 			
+			//Print the first 10 elements in stream
+//			 r.lines()
+//			.map(line -> line.split(","))
+//			.flatMap(k -> Arrays.asList(k).stream())
+//			.limit(10).forEach(s -> System.out.println(s));
 			
+			//add something to beginning and ending of every single csv val then
+			//add it to an arraylist
+//			ArrayList<String> f = new ArrayList<>();
+//			 r.lines()
+//			.map(line -> line.split(","))
+//			.flatMap(k -> Arrays.asList(k).stream())
+//			.forEach(word -> f.add(word = "****" + word + "*****"));			 
+//			 f.forEach(word -> System.out.println(word));
 			
-								
+			//Find all words that contain the word "CHANGE"
+//			r.lines()
+//			.map(line -> line.split(","))
+//			.flatMap(k -> Arrays.asList(k).parallelStream())
+//			.filter((aString) -> aString.contains("CHANGE"))
+//			.forEach(word -> System.out.println(word));
+					
+													
 			return  (ArrayList<String>) r.lines()
 					.map(line -> line.split(","))
 					.flatMap(k -> Arrays.asList(k).stream())
@@ -49,7 +69,8 @@ public class Driver {
 	
 	public static void main(String[] args) throws IOException{
 		ArrayList<String> newList = streamParser();
-		newList.forEach(s -> System.out.println(s));	
-		//System.out.println(newList.size() + " arralist size");
+		//newList.forEach(s -> System.out.println(s));	
+		
+		
 	}
 }
