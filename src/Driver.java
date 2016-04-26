@@ -9,6 +9,7 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 
 
+
 public class Driver {
 	
 	private static ArrayList<String> streamParser() throws FileNotFoundException, IOException{
@@ -55,13 +56,26 @@ public class Driver {
 //			.flatMap(k -> Arrays.asList(k).parallelStream())
 //			.filter((aString) -> aString.contains("CHANGE"))
 //			.forEach(word -> System.out.println(word));
+			
+			//r.lines().forEach(s -> System.out.println(s));
+			
+//			Skips the first line that has header information then 
+//			splits by , and takes out any blank entires
+//			r.lines()			
+//			.map(line -> line.split(","))
+//			.skip(1)
+//			.flatMap(k -> Arrays.asList(k).stream())
+//			.filter((blanks) -> !blanks.equals(""))
+//			.collect(Collectors.toList())
+//			.forEach(word -> System.out.println(word));
 					
 													
-			return  (ArrayList<String>) r.lines()
-					.map(line -> line.split(","))					
-					.flatMap(k -> Arrays.asList(k).stream())
-					.filter((blanks) -> !blanks.equals(""))
-					.collect(Collectors.toList());
+			return  (ArrayList<String>) r.lines() //calls BufferedReader lines method which returns a stream
+					.map(line -> line.split(",")) //Split lines for each comma					
+					.flatMap(k -> Arrays.asList(k).stream()) //map each split value into array then make another stream 
+					.filter((blanks) -> !blanks.equals("")) //filter out blank values
+					.filter(zero -> !zero.equals("0")) //filter out and values equal to 0
+					.collect(Collectors.toList()); //return and arraylist
 			
 		}
 		
