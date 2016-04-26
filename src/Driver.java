@@ -69,17 +69,18 @@ public class Driver {
 //			.collect(Collectors.toList())
 //			.forEach(word -> System.out.println(word));
 					
-													
+				
+			//First stream is 4 lines, e.g 4 long strings
+			//next stream is a stream of strings that have been split by commas
 			return  (ArrayList<String>) r.lines() //calls BufferedReader lines method which returns a stream
-					.map(line -> line.split(",")) //Split lines for each comma					
+					.map(line -> line.split(",")) //Split lines for each comma	
+					.skip(1)
 					.flatMap(k -> Arrays.asList(k).stream()) //map each split value into array then make another stream 
 					.filter((blanks) -> !blanks.equals("")) //filter out blank values
 					.filter(zero -> !zero.equals("0")) //filter out and values equal to 0
 					.collect(Collectors.toList()); //return and arraylist
 			
-		}
-		
-		
+		}				
 	}
 	
 	public static void main(String[] args) throws IOException{
