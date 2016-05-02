@@ -85,8 +85,6 @@ public class Driver {
 	
 	public static void main(String[] args) throws IOException{
 		ArrayList<String> newList = streamParser();
-		newList.forEach(s -> System.out.println(s));	
-		
-		
+		newList.forEach(s -> System.out.println(s));					
 	}
 }
